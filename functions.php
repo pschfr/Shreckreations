@@ -11,7 +11,7 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 // Enqueues necessary CSS
 function theme_enqueue_styles() {
 	wp_enqueue_style('tachyons', 'https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.9.1/tachyons.min.css');
-	wp_enqueue_style('googlefonts', 'https://fonts.googleapis.com/css?family=Raleway');
+	wp_enqueue_style('googlefonts', 'https://fonts.googleapis.com/css?family=Raleway:n,b,i');
 	wp_enqueue_style('main', get_template_directory_uri().'/style.css' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles', 11 );
@@ -32,6 +32,14 @@ function theme_widgets_init() {
 // Initializes menu area
 function theme_menus_init() { register_nav_menu('first_menu', __('First Menu')); }
 add_action('init', 'theme_menus_init');
+
+// Adds classes to the <a> tag in the menus, see https://wordpress.stackexchange.com/a/241072/
+function menu_add_class($atts, $item, $args) {
+	$class = 'gray dim'; // or something based on $item
+    $atts['class'] = $class;
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'menu_add_class', 10, 3);
 
 // It's pretty dumb that I have to do these manually
 add_filter('widget_text', 'do_shortcode');
