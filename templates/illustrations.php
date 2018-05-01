@@ -4,8 +4,15 @@ Template Name: Illustrations Page
 */
 ?>
 <?php get_header(); ?>
+<?php
+    $args = array(
+        'post_type' => 'illustration',
+        'posts_per_page' => -1
+    );
+    $loop = new WP_Query($args);
+?>
 <section id="content" role="main" class="bg-black white pv3">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post(); ?>
         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <section class="entry-content">
                 <?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
