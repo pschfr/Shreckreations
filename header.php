@@ -9,7 +9,7 @@
 		</title>
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class('sans-serif'); ?>>
 		<header class="mt5 ph3 tc">
 			<h1 class="f2-ns f3 fw3 ttu tracked lh-solid">
 				<a href="<?php echo get_site_url(); ?>">

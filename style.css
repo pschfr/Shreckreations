@@ -3,13 +3,6 @@ Theme Name: Shreckreations
 Author: Paul Schaefer
 Author URI: https://paulmakesthe.net/
 Version: 0.0.1
+
+All the CSS is in includes/sass, then compiled into includes/css/main.css
 */
-@charset 'UTF-8';
-
-body {
-    font-family: 'Raleway', sans-serif;
-}
-
-.current-menu-item {
-    font-weight: bold;
-}
