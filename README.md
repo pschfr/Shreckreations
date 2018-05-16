@@ -1,2 +1,2 @@
 # Shreckreations
-[WordPress theme for Jerod Shreckengast](https://paulmakesthe.net/jerod/)
+[WordPress theme for Jerod Shreckengast](https://shreckreations.com/)
