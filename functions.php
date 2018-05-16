@@ -6,10 +6,6 @@ function theme_enqueue_scripts() {
 	wp_enqueue_script('jquery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js', array(), '', true);
 	wp_enqueue_script('lightbox', 'https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/1.12.1/simple-lightbox.min.js', array('jquery'), '', true);
 	wp_enqueue_script('main', get_template_directory_uri() . '/includes/main.js', array(), '', true);
-	if (is_page_template('templates/contact.php')) {
-		wp_enqueue_script('maps', get_template_directory_uri() . '/includes/maps.js', array(), '', true);
-		wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC9VmmVTpMazQowqiKZ8mebyB93a6DXohA&callback=initMap', array('maps'), '', true);
-	}
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
@@ -46,7 +42,7 @@ add_action('init', 'theme_menus_init');
 
 // Adds classes to the <a> tag in the menus, see https://wordpress.stackexchange.com/a/241072/
 function menu_add_class($atts, $item, $args) {
-    $atts['class'] .= 'gray dim ph1';
+    $atts['class'] .= 'gray ph1';
     return $atts;
 }
 add_filter('nav_menu_link_attributes', 'menu_add_class', 10, 3);
@@ -57,14 +53,6 @@ function thumbnail_add_class($atts) {
 	return $atts;
   }
 add_filter('wp_get_attachment_image_attributes','thumbnail_add_class');
-
-// Makes WP allow SVG uploads through the Media Library, see https://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
-// I can probably remove this later...
-function cc_mime_types($mimes) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
-}
-add_filter('upload_mimes', 'cc_mime_types');
 
 // It's pretty dumb that I have to do these manually
 add_filter('widget_text', 'do_shortcode');
