@@ -4,6 +4,8 @@ $sans-serif: 'Raleway', -apple-system, BlinkMacSystemFont, 'avenir next', avenir
 // SimpleLightbox overrides
 $sl-font-family: $sans-serif
 $sl-overlay-background: black
+$sl-caption-background: transparent
+$sl-navigation-color: white
 
 // Actual imports...
 @import 'tachyons'
@@ -11,4 +13,12 @@ $sl-overlay-background: black
 
 // My actual styles
 .current-menu-item
-    font-weight: bold
+    @extend .b
+    a
+        @extend .black
+
+a
+    @extend .color-inherit, .dim
+
+p
+    @extend .mt0

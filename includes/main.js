@@ -2,6 +2,7 @@
 (function($) {
     // Initiates simpleLightbox
     var lightbox = $('.entry-content a').simpleLightbox({
-        'captionsData': 'alt'
+        'captionsData': 'alt',
+        'captionClass': 'tc pos-outside'
     });
 })(jQuery);
